@@ -1,0 +1,7 @@
+applications:
+- name: typescript-node-api
+  memory: 512M
+  host: typescript-node
+  random-route: true
+  buildpack: https://github.com/cloudfoundry/nodejs-buildpack.git
+  command: npm run start
