@@ -15,3 +15,4 @@ console.log(obj['anotherParam']);
 var aNewParam = "a new param";
 obj[aNewParam] = "param2";
 console.log(obj[aNewParam]);
+
