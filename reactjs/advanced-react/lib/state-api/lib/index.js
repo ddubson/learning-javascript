@@ -1,6 +1,9 @@
-class DataApi {
+class StateApi {
   constructor(rawData){
-    this.rawData = rawData;
+    this.data = {
+      articles: this.mapIntoObject(rawData.articles),
+      authors: this.mapIntoObject(rawData.authors)
+    };
   }
 
   mapIntoObject(arr) {
@@ -10,13 +13,16 @@ class DataApi {
     }, {});
   }
 
-  getArticles() {
-    return this.mapIntoObject(this.rawData.articles);
+  getState() {
+    return {
+      articles: this.data.articles,
+      authors: this.data.authors
+    }
   }
 
-  getAuthors() {
-    return this.mapIntoObject(this.rawData.authors);
+  lookupAuthor(authorId) {
+    return this.data.authors[authorId];
   }
 }
 
-export default DataApi
+export default StateApi

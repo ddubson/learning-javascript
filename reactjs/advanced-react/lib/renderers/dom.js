@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from 'components/App';
 
+const store = new StateApi(window.initialData);
+
 ReactDOM.render(
-  <App initialData={window.initialData}/>,
+  <App store={store}  />,
   document.getElementById('root')
 );
