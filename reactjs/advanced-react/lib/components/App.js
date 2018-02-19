@@ -11,14 +11,19 @@ class App extends React.Component {
     this.state = {
       articles: api.getArticles(),
       authors: api.getAuthors()
-    }
+    };
+    this.articleActions.lookupAuthor = this.articleActions.lookupAuthor.bind(this);
   }
+
+  articleActions = {
+    lookupAuthor: (authorId) => this.state.authors[authorId],
+  };
 
   render() {
     return (
       <ArticleList
         articles={this.state.articles}
-        authors={this.state.authors}
+        articleActions={this.articleActions}
       />
     )
   }

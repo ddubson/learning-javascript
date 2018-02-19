@@ -7,7 +7,7 @@ export const ArticleList = (props) => (
       return <Article
         key={article.id}
         article={article}
-        author={props.authors[article.authorId]}
+        actions={props.articleActions}
       />
     })}
   </div>
