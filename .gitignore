@@ -12,4 +12,6 @@ coverage
 .env
 npm-debug.log
 
+bundle.js
+**/public/
 .idea/
