@@ -4,11 +4,11 @@ import DataApi from 'state-api';
 import { ArticleList } from "./ArticleList";
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      articles: {},
-      authors: {}
+      articles: props.initialData.articles,
+      authors: props.initialData.authors
     };
     this.articleActions.lookupAuthor = this.articleActions.lookupAuthor.bind(this);
   }

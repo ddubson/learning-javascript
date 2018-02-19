@@ -1,9 +1,22 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import App from '../components/App';
+import App from 'components/App';
+import axios from "axios/index";
+import DataApi from "../state-api/lib";
+import config from "config"
 
-const serverRender = () => {
-  return ReactDOMServer.renderToString(<App/>)
+const serverRender = async () => {
+  const response = await axios.get(`http://${config.host}:${config.port}/data`);
+  const api = new DataApi(response.data);
+  const initialData = {
+    articles: api.getArticles(),
+    authors: api.getAuthors()
+  };
+
+  return {
+    initialMarkup: ReactDOMServer.renderToString(<App initialData={initialData}/>),
+    initialData
+  }
 };
 
 export default serverRender;
