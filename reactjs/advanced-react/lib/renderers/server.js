@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import App from 'components/App';
-import axios from "axios/index";
-import StateApi from "../state-api/lib";
-import config from "config"
+import axios from 'axios/index';
+import StateApi from 'state-api/lib';
+import config from 'config';
 
 const serverRender = async () => {
   const response = await axios.get(`http://${config.host}:${config.port}/data`);
@@ -12,7 +12,7 @@ const serverRender = async () => {
   return {
     initialMarkup: ReactDOMServer.renderToString(<App store={store}/>),
     initialData: response.data
-  }
+  };
 };
 
 export default serverRender;

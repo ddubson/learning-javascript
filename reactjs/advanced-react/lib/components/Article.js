@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const styles = {
   article: {
@@ -35,5 +36,13 @@ export const Article = props => {
       <div style={styles.author}><a href={author.website}>{author.firstName} {author.lastName}</a></div>
       <div style={styles.body}>{article.body}</div>
     </div>
-  )
+  );
+};
+
+Article.propTypes = {
+  article: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+    article: PropTypes.string.isRequired
+  })
 };
