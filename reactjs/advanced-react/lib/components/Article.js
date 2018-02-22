@@ -25,9 +25,9 @@ const styles = {
   }
 };
 
-export const Article = props => {
-  const {article, store } = props;
-  const author = store.lookupAuthor(article.authorId);
+export const Article = (props, context) => {
+  const {article } = props;
+  const author = context.store.lookupAuthor(article.authorId);
 
   return (
     <div style={styles.article}>
@@ -45,4 +45,8 @@ Article.propTypes = {
     body: PropTypes.string.isRequired,
     article: PropTypes.string.isRequired
   })
+};
+
+Article.contextTypes = {
+  store: PropTypes.object,
 };
