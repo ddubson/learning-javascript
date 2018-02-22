@@ -1,24 +1,25 @@
 import React from 'react';
-import { ArticleList } from '../ArticleList';
+import {shallow} from 'enzyme';
+import {ArticleList} from '../ArticleList';
 
-import renderer from 'react-test-renderer';
 
 describe('ArticleList', () => {
   const testProps = {
     articles: {
-      a: { id: 'a' },
-      b: { id: 'b' }
+      a: {id: 'a', title: 'a', body: 'a', article: 'a'},
+      b: {id: 'b', title: 'b', body: 'a', article: 'a'}
     },
     store: {
       lookupAuthor: jest.fn(() => ({}))
     }
   };
 
-  it("renders correctly", () => {
-    const tree = renderer.create(<ArticleList
+  it('renders correctly', () => {
+    const wrapper = shallow(<ArticleList
       {...testProps}
-    />).toJSON();
+    />);
 
-    expect(tree).toMatchSnapshot();
-  })
+    expect(wrapper.props().children.length).toEqual(2);
+    expect(wrapper).toMatchSnapshot();
+  });
 });
