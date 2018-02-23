@@ -7,6 +7,7 @@ const config = {
       path.resolve('./node_modules')
     ]
   },
+  devtool: 'inline-source-map',
   entry: ['babel-polyfill', './lib/renderers/dom.js'],
   output: {
     path: path.resolve(__dirname, 'public'),

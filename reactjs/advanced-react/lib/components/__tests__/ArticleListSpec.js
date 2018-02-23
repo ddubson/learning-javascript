@@ -6,8 +6,8 @@ import {ArticleList} from '../ArticleList';
 describe('ArticleList', () => {
   const testProps = {
     articles: {
-      a: {id: 'a', title: 'a', body: 'a', article: 'a'},
-      b: {id: 'b', title: 'b', body: 'a', article: 'a'}
+      a: {id: 'a', title: 'a', body: 'a'},
+      b: {id: 'b', title: 'b', body: 'a'}
     },
     store: {
       lookupAuthor: jest.fn(() => ({}))
@@ -19,7 +19,7 @@ describe('ArticleList', () => {
       {...testProps}
     />);
 
-    expect(wrapper.props().children.length).toEqual(2);
+    expect(wrapper.find('ArticleContainer').length).toEqual(2);
     expect(wrapper).toMatchSnapshot();
   });
 });

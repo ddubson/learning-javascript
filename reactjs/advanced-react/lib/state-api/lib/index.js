@@ -17,12 +17,12 @@ class StateApi {
     return {
       articles: this.data.articles,
       authors: this.data.authors
-    }
-  }
+    };
+  };
 
   lookupAuthor(authorId) {
     return this.data.authors[authorId];
   }
 }
 
-export default StateApi
+export default StateApi;

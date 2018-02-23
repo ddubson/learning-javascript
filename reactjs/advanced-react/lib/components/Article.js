@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import storeProvider from './storeProvider';
 
 const styles = {
   article: {
@@ -25,9 +26,9 @@ const styles = {
   }
 };
 
-export const Article = (props, context) => {
-  const {article } = props;
-  const author = context.store.lookupAuthor(article.authorId);
+const Article = (props) => {
+  const {article, store} = props;
+  const author = store.lookupAuthor(article.authorId);
 
   return (
     <div style={styles.article}>
@@ -39,14 +40,11 @@ export const Article = (props, context) => {
   );
 };
 
+export default storeProvider(Article);
+
 Article.propTypes = {
   article: PropTypes.shape({
     title: PropTypes.string.isRequired,
     body: PropTypes.string.isRequired,
-    article: PropTypes.string.isRequired
   })
-};
-
-Article.contextTypes = {
-  store: PropTypes.object,
 };

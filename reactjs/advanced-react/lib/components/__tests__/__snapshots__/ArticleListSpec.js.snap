@@ -8,13 +8,11 @@ ShallowWrapper {
     articles={
       Object {
         "a": Object {
-          "article": "a",
           "body": "a",
           "id": "a",
           "title": "a",
         },
         "b": Object {
-          "article": "a",
           "body": "a",
           "id": "b",
           "title": "b",
@@ -40,20 +38,18 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <Article
+        <ArticleContainer
           article={
             Object {
-              "article": "a",
               "body": "a",
               "id": "a",
               "title": "a",
             }
           }
         />,
-        <Article
+        <ArticleContainer
           article={
             Object {
-              "article": "a",
               "body": "a",
               "id": "b",
               "title": "b",
@@ -67,10 +63,9 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": "a",
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
           "article": Object {
-            "article": "a",
             "body": "a",
             "id": "a",
             "title": "a",
@@ -83,10 +78,9 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": "b",
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
           "article": Object {
-            "article": "a",
             "body": "a",
             "id": "b",
             "title": "b",
@@ -106,20 +100,18 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Article
+          <ArticleContainer
             article={
               Object {
-                "article": "a",
                 "body": "a",
                 "id": "a",
                 "title": "a",
               }
             }
           />,
-          <Article
+          <ArticleContainer
             article={
               Object {
-                "article": "a",
                 "body": "a",
                 "id": "b",
                 "title": "b",
@@ -133,10 +125,9 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": "a",
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
             "article": Object {
-              "article": "a",
               "body": "a",
               "id": "a",
               "title": "a",
@@ -149,10 +140,9 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": "b",
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
             "article": Object {
-              "article": "a",
               "body": "a",
               "id": "b",
               "title": "b",
