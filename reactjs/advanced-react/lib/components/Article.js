@@ -27,8 +27,7 @@ const styles = {
 };
 
 const Article = (props) => {
-  const {article, store} = props;
-  const author = store.lookupAuthor(article.authorId);
+  const {article, author } = props;
 
   return (
     <div style={styles.article}>
@@ -40,7 +39,13 @@ const Article = (props) => {
   );
 };
 
-export default storeProvider(Article);
+function extraProps(state, originalProps) {
+  return {
+    author: state.lookupAuthor(originalProps.article.authorId)
+  }
+}
+
+export default storeProvider(extraProps)(Article);
 
 Article.propTypes = {
   article: PropTypes.shape({

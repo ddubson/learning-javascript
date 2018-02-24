@@ -1,9 +1,9 @@
-import StateApi from 'state-api';
-import { data } from '../testData';
+import StateApi from 'state-api/lib/index';
+import { data } from '../../testData';
 
 const store = new StateApi(data);
 
-describe("DataApi", () => {
+describe("StateApi", () => {
   it("exposes articles as an object", () => {
     const articles = store.getState().articles;
     const articleId = data.articles[0].id;
