@@ -4,6 +4,7 @@ class StateApi {
       articles: this.mapIntoObject(rawData.articles),
       authors: this.mapIntoObject(rawData.authors),
       searchTerm: '',
+      timestamp: new Date(),
     };
     this.subscriptions = {};
     this.lastSubscriptionId = 0;
@@ -35,6 +36,12 @@ class StateApi {
   lookupAuthor(authorId) {
     return this.data.authors[authorId];
   }
+
+  startClock = () => {
+    setInterval(() => {
+      this.mergeWithState({ timestamp: new Date() })
+    }, 1000);
+  };
 
   subscribe = (callbackFn) => {
     this.lastSubscriptionId++;
