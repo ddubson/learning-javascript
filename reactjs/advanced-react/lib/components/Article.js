@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import storeProvider from './storeProvider';
 
@@ -26,18 +26,20 @@ const styles = {
   }
 };
 
-const Article = (props) => {
-  const {article, author } = props;
+class Article extends PureComponent {
+  render() {
+    const {article, author } = this.props;
 
-  return (
-    <div style={styles.article}>
-      <div style={styles.title}>{article.title}</div>
-      <div style={styles.date}>{article.date}</div>
-      <div style={styles.author}><a href={author.website}>{author.firstName} {author.lastName}</a></div>
-      <div style={styles.body}>{article.body}</div>
-    </div>
-  );
-};
+    return (
+      <div style={styles.article}>
+        <div style={styles.title}>{article.title}</div>
+        <div style={styles.date}>{article.date}</div>
+        <div style={styles.author}><a href={author.website}>{author.firstName} {author.lastName}</a></div>
+        <div style={styles.body}>{article.body}</div>
+      </div>
+    );
+  }
+}
 
 function extraProps(state, originalProps) {
   return {

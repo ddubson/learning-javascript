@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 const config = {
   resolve: {
@@ -8,10 +9,26 @@ const config = {
     ]
   },
   devtool: 'inline-source-map',
-  entry: ['babel-polyfill', './lib/renderers/dom.js'],
+  entry: {
+    vendor: [
+      'babel-polyfill',
+      'react',
+      'react-dom',
+      'prop-types',
+      'axios',
+      'lodash.debounce',
+      'lodash.pickby'
+    ],
+    app: ['./lib/renderers/dom.js']
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor'
+    })
+  ],
   output: {
     path: path.resolve(__dirname, 'public'),
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   module: {
     rules: [

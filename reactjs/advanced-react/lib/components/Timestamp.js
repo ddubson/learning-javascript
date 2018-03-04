@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import storeProvider from './storeProvider';
 
-const Timestamp = (props) => {
-  return (
-    <div>
-      {props.timestamp.toString()}
-    </div>
-  );
-};
+class Timestamp extends Component {
+  static timeDisplay = timestamp => timestamp.toLocaleString([], {
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+
+  render() {
+    return (
+      <div>
+        {this.props.timestampDisplay}
+      </div>
+    );
+  }
+}
 
 const extraProps = (store) => {
   return {
-    timestamp: store.getState().timestamp
+    timestampDisplay: Timestamp.timeDisplay(store.getState().timestamp)
   };
 };
 

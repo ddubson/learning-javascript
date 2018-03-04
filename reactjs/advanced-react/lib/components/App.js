@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ArticleList } from './ArticleList';
+import ArticleList from './ArticleList';
 import SearchBar from './SearchBar';
-import pickBy from 'lodash.pickBy';
+import pickBy from 'lodash.pickby';
 import Timestamp from './Timestamp';
 
 class App extends React.Component {
@@ -16,8 +16,13 @@ class App extends React.Component {
     store: PropTypes.object,
   };
 
+  appState = () => {
+    const {articles, searchTerm} = this.props.store.getState();
+    return {articles, searchTerm};
+  }
+
   onStoreChange = () => {
-    this.setState(this.props.store.getState());
+    this.setState(this.appState());
   };
 
   componentDidMount() {
@@ -43,7 +48,7 @@ class App extends React.Component {
         return value.title.match(searchRE) || value.body.match(searchRE)
       })
     }
- 
+
     return (
       <div>
         <Timestamp />

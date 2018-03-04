@@ -8,9 +8,15 @@ const storeProvider = (extraProps = () => ({})) => (Component) => {
       store: PropTypes.object,
     };
 
+    usedState = () => {
+      return extraProps(this.context.store, this.props);
+    };
+
+    state = this.usedState();
+
     onStoreChange = () => {
       if(this.subscriptionId) {
-        this.forceUpdate();
+        this.setState(this.usedState());
       }
     };
 

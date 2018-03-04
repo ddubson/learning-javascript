@@ -2,7 +2,7 @@ import React from 'react';
 import debounce from 'lodash.debounce';
 import storeProvider from './storeProvider';
 
-class SearchBar extends React.Component {
+class SearchBar extends React.PureComponent {
   state = {
     searchTerm: ""
   };
@@ -24,7 +24,7 @@ class SearchBar extends React.Component {
         placeholder="Enter search term..."
         onChange={this.handleSearch}
         value={this.state.searchTerm}
-        />
+      />
     )
   }
 }

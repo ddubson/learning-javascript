@@ -1,7 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {ArticleList} from '../ArticleList';
-
+import ArticleList from '../ArticleList';
 
 describe('ArticleList', () => {
   const testProps = {
