@@ -15,3 +15,12 @@ console.log("var declared: ", pathName)
 // The 'const' statement -- declaring a constant in the current scope; a constant value cannot be changed once declared.
 const isReadOnly = true
 console.log("const keyword", isReadOnly)
+
+// Multiple assignment
+let [a, b] = [10, 20]
+console.log("Multiple assignment: ", a, b)
+
+// Conditional multiple assignment
+const [str1, str2] = ["Hello", "hi"]
+let [largerString, smallerString] = str1.length >= str2.length ? [str1, str2] : [str2, str1];
+console.log("Multiple assignment (conditional)", largerString, smallerString)

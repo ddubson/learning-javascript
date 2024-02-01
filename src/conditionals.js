@@ -4,6 +4,8 @@ const isDirectory = true
 // Implicit boolean check -- preferred shorthand
 if (isDirectory) {
   console.log('is directory (implicit)')
+} else {
+  console.log('is not a directory')
 }
 
 if (!isDirectory) {
@@ -33,3 +35,6 @@ switch (fs) {
     console.log("Did not match on a file system")
 }
 
+// Ternary operator
+const a = isDirectory ? '/dir' : 'a.txt'
+console.log("Ternary operator: ", a)

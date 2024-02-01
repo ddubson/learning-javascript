@@ -1,4 +1,4 @@
-# Learning Javascript
+# Learning JavaScript
 
 ## Runtimes
 
@@ -16,7 +16,7 @@ node src/declarations.js
 ```
 
 💡 There is a slight difference in `var` and `let` keywords to be aware of. The older `var` keyword declares a variable
-in the current function scope, whereas the 'let' keyword is scoped to the enclosing block it is declared in. Rely
+in the current function scope, whereas the `let` keyword is scoped to the enclosing block it is declared in. Rely
 on `let`.
 
 - [Difference between 'let' and 'var'](https://stackoverflow.com/a/11444416/693826)
